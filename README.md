@@ -13,19 +13,21 @@ to understand how to run and work with Dgraph.
 
 ## Table of contents
 
-- [Supported Versions](#supported-versions)
-- [Using a client](#using-a-client)
-  - [Creating a client](#creating-a-client)
-  - [Altering the database](#altering-the-database)
-  - [Creating a transaction](#creating-a-transaction)
-  - [Running a mutation](#running-a-mutation)
-  - [Running a query](#running-a-query)
-  - [Running an Upsert: Query + Mutation](#running-an-upsert-query--mutation)
-  - [Running Conditional Upsert](#running-conditional-upsert)
-  - [Committing a transaction](#committing-a-transaction)
-  - [Setting Metadata Headers](#setting-metadata-headers)
-- [Development](#development)
-  - [Running tests](#running-tests)
+- [dgo ![GoDoc](https://godoc.org/github.com/dgraph-io/dgo) [![Build Status](https://teamcity.dgraph.io/guestAuth/app/rest/builds/buildType:(id:dgo_integration)/statusIcon.svg)](https://teamcity.dgraph.io/viewLog.html?buildTypeId=dgo_integration&buildId=lastFinished&guest=1)](#dgo-img-srchttpsgodocorggithubcomdgraph-iodgostatussvg-altgodoc-img-srchttpsteamcitydgraphioguestauthapprestbuildsbuildtypeiddgo_integrationstatusiconsvg-altbuild-status)
+  - [Table of contents](#table-of-contents)
+  - [Supported Versions](#supported-versions)
+  - [Using a client](#using-a-client)
+    - [Creating a client](#creating-a-client)
+    - [Altering the database](#altering-the-database)
+    - [Creating a transaction](#creating-a-transaction)
+    - [Running a mutation](#running-a-mutation)
+    - [Running a query](#running-a-query)
+    - [Running an Upsert: Query + Mutation](#running-an-upsert-query--mutation)
+    - [Running Conditional Upsert](#running-conditional-upsert)
+    - [Committing a transaction](#committing-a-transaction)
+    - [Setting Metadata Headers](#setting-metadata-headers)
+  - [Development](#development)
+    - [Running tests](#running-tests)
 
 ## Supported Versions
 
@@ -121,12 +123,12 @@ will be a no-op.
 
 To use JSON, use the fields SetJson and DeleteJson, which accept a string
 representing the nodes to be added or removed respectively (either as a JSON map
-or a list). To use RDF, use the fields SetNquads and DeleteNquads, which accept
+or a list). To use RDF, use the fields SetNquads and DelNquads, which accept
 a string representing the valid RDF triples (one per line) to added or removed
 respectively. This protobuf object also contains the Set and Del fields which
 accept a list of RDF triples that have already been parsed into our internal
 format. As such, these fields are mainly used internally and users should use
-the SetNquads and DeleteNquads instead if they are planning on using RDF.
+the SetNquads and DelNquads instead if they are planning on using RDF.
 
 We define a Person struct to represent a Person and marshal an instance of it to
 use with `Mutation` object.
